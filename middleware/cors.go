@@ -7,17 +7,13 @@ import (
 )
 
 func Cors() gin.HandlerFunc {
-	return func(ctx *gin.Context) {
-		cors.New(cors.Config{
-			//AllowAllOrigins:    true,
-			AllowOrigins:  []string{"*"},
-			AllowMethods:  []string{"*"},
-			AllowHeaders:  []string{"Origin"},
-			ExposeHeaders: []string{"Content-Length", "Authorization"},
-			//AllowOriginFunc: func(origin string) bool {
-			//	return origin == "https://github.com"
-			//},
-			MaxAge: 12 * time.Hour,
-		})
-	}
+	return cors.New(cors.Config{
+		AllowAllOrigins:  true,
+		AllowMethods:     []string{"GET", "POST", "DELETE", "PUT", "OPTIONS"},
+		AllowHeaders:     []string{"*"},
+		ExposeHeaders:    []string{"Content-Type", "Authorization", "Content-Length"},
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
+	})
+	return cors.Default()
 }

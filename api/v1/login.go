@@ -20,8 +20,8 @@ func Login(ctx *gin.Context) {
 		token, code = middleware.SetToken(data.Username)
 	}
 	ctx.JSON(http.StatusOK, gin.H{
-		"status:": code,
-		"msg":     errmsg.GetErrMsg(code),
-		"token":   token,
+		"status": code,
+		"msg":    errmsg.GetErrMsg(code),
+		"token":  token,
 	})
 }
