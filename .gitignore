@@ -7,7 +7,7 @@
 *.idea
 *.log
 *.exe
-
+/config/cfg.ini
 # Test binary, built with `go test -c`
 *.test
 
